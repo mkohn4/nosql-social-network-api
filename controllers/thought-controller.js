@@ -90,7 +90,7 @@ const thoughtController = {
         Thought.findOneAndUpdate(
             {_id: params.thoughtId},
             {$pull: {reactions: {reactionId: params.reactionId}}},
-            {new: true, runValidators: true}
+            {new: true}
         ).then(dbThoughtData => {
             if (!dbThoughtData) {
                 res.status(404).json({message: 'no thought with this id found'});
@@ -106,3 +106,4 @@ const thoughtController = {
 }
 
 module.exports = thoughtController;
+
