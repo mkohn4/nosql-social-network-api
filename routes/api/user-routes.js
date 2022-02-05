@@ -9,6 +9,11 @@ router.route('/')
 router.route('/:id')
     .get(userController.getUserById)
     .put(userController.updateUser)
-    .delete(userController.deleteUser)
+    .delete(userController.deleteUser);
+
+
+router.route('/:userId/friends/:friendId')
+    .post(userController.addFriend)
+    .delete(userController.deleteFriend);
 
 module.exports = router;
